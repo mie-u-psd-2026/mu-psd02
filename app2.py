@@ -1,5 +1,5 @@
-from flask import Flask, request, jsonify, send_from_directory
 import requests
+from flask import Flask, jsonify, request, send_from_directory
 
 app = Flask(__name__)
 
@@ -83,12 +83,12 @@ def send_api():
         })
 
 
-    except Exception as e:
+    except requests.RequestException as e:
 
         print("Ollama error:", e)
 
         return jsonify({
-            "response": "ちょっと！！AIが返事してくれないんだけど！！💢"
+            "response": "ちょっと!!AIが返事してくれないんだけど！！💢"
         }), 500
 
 
