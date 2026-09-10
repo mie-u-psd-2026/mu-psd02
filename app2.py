@@ -4,7 +4,7 @@ from flask import Flask, jsonify, request, send_from_directory
 app = Flask(__name__)
 
 OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
-MODEL_NAME = "qwen3:4b"
+MODEL_NAME = "qwen2.5:3b"
 
 
 @app.route("/")
