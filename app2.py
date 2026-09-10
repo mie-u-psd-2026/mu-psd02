@@ -78,9 +78,10 @@ def send_api():
                 "model": MODEL_NAME,
                 "prompt": prompt,
                 "stream": False,
+                "think": False,
                 "options": {
                     "num_predict": 100,
-                    "temperature": 1.0
+                    "temperature": 0.9
                 }
             },
             timeout=60
