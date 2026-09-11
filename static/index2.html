@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ヒステリック変換アプリ</title>
+  <title>ヒステリックAI</title>
 
   <style>
     * {
@@ -357,6 +357,39 @@
         font-size: 32px;
       }
     }
+    .character-select {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .character-button {
+      margin-top: 0;
+      padding: 12px;
+      width: 50%;
+
+      background: #fff0f3;
+      color: #c9184a;
+
+      border: 2px solid #ff8fa3;
+
+      box-shadow: none;
+    }
+
+    .character-button:hover {
+      transform: translateY(-2px);
+
+      box-shadow: none;
+    }
+
+    .character-button.active {
+      background: #c9184a;
+      color: white;
+
+      border-color: #c9184a;
+
+      box-shadow: none;
+    }
   </style>
 </head>
 
@@ -371,12 +404,37 @@
     <div class="title-area">
       <div class="title-icon">💢</div>
 
-      <h1>ヒステリック変換</h1>
+      <h1>ヒステリックAI</h1>
 
       <p class="subtitle">
-        あなたの文章を、感情100倍で返します。
+        あなたの一言に、彼女か母親がヒスって返します。
       </p>
     </div>
+
+    <label class="input-label">
+      誰にヒスられたい？
+    </label>
+
+    <div class="character-select">
+
+      <button
+        type="button"
+        class="character-button active"
+        data-character="彼女"
+      >
+        💕 彼女
+      </button>
+
+      <button
+        type="button"
+        class="character-button"
+        data-character="母親"
+      >
+        👩 母親
+      </button>
+
+    </div>
+
 
     <label class="input-label">
       変換したい文章
@@ -425,6 +483,36 @@
     const speech =
       document.getElementById("speech");
 
+        const characterButtons =
+      document.querySelectorAll(".character-button");
+
+    let selectedCharacter = "彼女";
+
+
+    characterButtons.forEach((button) => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          characterButtons.forEach(
+            (button) => {
+              button.classList.remove("active");
+            }
+          );
+
+          button.classList.add("active");
+
+          selectedCharacter =
+            button.dataset.character;
+
+          speech.textContent =
+            `${selectedCharacter}がヒスるわよ！！💢`;
+
+        }
+      );
+
+    });
 
     sendButton.addEventListener(
       "click",
@@ -470,7 +558,8 @@
 
                 body:
                   JSON.stringify({
-                    message: text
+                    message: text,
+                    character: selectedCharacter
                   })
 
               }
