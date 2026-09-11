@@ -18,7 +18,6 @@
 - AIから返答を取得した際には、返答欄に生成された文章を表示する。
 - 返答生成後、返答欄にアニメーションを適用する。
 
-2.2 生成AIリクエスト API
 ### 2.2 生成AIリクエスト API
 - ユーザー入力と定型プロンプトを合成し、LLMに渡すコンテキストを生成
 - その際に、適切なコンテキストを追加し、望ましい回答を得られるように情報を付加する。
@@ -29,19 +28,19 @@
 ## 3. 使用技術
 分類	      | 技術・ライブラリ
 -----------------------------
-フロントエンド  HTML5 / CSS3 / JavaScript
+フロントエンド　：　HTML5 / CSS3 / JavaScript
 
-バックエンド	Flask
+バックエンド　：　Flask
 
-通信方式	   Fetch API / JSON
+通信方式　：　Fetch API / JSON
 
-生成AI連携	   Ollama API
+生成AI連携　：　Ollama API
 
-LLMモデル	   Qwen3 4B
+LLMモデル　：　Qwen3 4B
 
-HTTP通信	   Python requests
+HTTP通信　：　Python requests
 
-サーバー	   Flask 開発サーバー
+サーバー　：　Flask 開発サーバー
 
 
 ## 4. 入出力例
